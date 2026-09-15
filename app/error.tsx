@@ -1,0 +1,2 @@
+"use client";
+export default function ErrorPage({reset}:{reset:()=>void}) { return <main className="grid min-h-screen place-items-center bg-[#f5f7f3] p-6 text-center"><div className="card max-w-md p-8"><p className="text-4xl">⚠️</p><h1 className="display mt-4 text-2xl font-bold">No pudimos cargar el dashboard</h1><p className="mt-2 text-sm text-[#707a71]">Los datos no están disponibles en este momento. Volvé a intentar.</p><button onClick={reset} className="mt-5 rounded-xl bg-[#184d2d] px-5 py-2.5 text-sm font-bold text-white">Reintentar</button></div></main> }
