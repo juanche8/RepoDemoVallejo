@@ -1,8 +1,14 @@
-# Radar Ecommerce
+# 📊 Radar Ecommerce
 
 Herramienta interna de Grupo Vallejo para analizar conversión, producto, categorías, Paid Media y, próximamente, medios de pago. Las fuentes pendientes se identifican explícitamente en cada módulo.
 
-## Ejecutar localmente
+![Next.js](https://img.shields.io/badge/Next.js-15-0B2F55?logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-164E8A?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-2F6FAE?logo=tailwindcss&logoColor=white)
+![Recharts](https://img.shields.io/badge/Recharts-Visualización-16875D)
+![Supabase](https://img.shields.io/badge/Supabase-Preparado-16875D?logo=supabase&logoColor=white)
+
+## 🚀 Ejecutar localmente
 
 Requiere Node.js 22.13 o superior y pnpm.
 
@@ -13,7 +19,7 @@ pnpm dev
 
 Abrir `http://localhost:3000`.
 
-## Validaciones
+## ✅ Validaciones
 
 ```bash
 pnpm exec tsc --noEmit --incremental false
@@ -22,7 +28,7 @@ pnpm test
 pnpm build
 ```
 
-## Capas simuladas
+## 🧪 Capas simuladas
 
 - Catálogo de 90 productos y sus SKU: `lib/mock-data.ts`.
 - Métricas agregadas de sesiones y eventos diarios de producto: `lib/mock-data.ts`.
@@ -30,7 +36,7 @@ pnpm build
 - Estado y horarios de sincronización: `components/layout/InstitutionalHeader.tsx`.
 - Clientes futuros sin conexión activa: `lib/integrations/ga4`, `lib/integrations/vtex` y `lib/supabase`.
 
-## Modelo Product / SKU
+## 🧩 Modelo Product / SKU
 
 `Product` representa el modelo comercial: `productId`, nombre, modelo, marca, macrocategoría, categoría, subcategoría y ecommerce. No contiene canal, provincia, precio ni stock.
 
@@ -42,7 +48,7 @@ Los selectores guardan `productId` como valor interno y muestran el nombre únic
 
 El canal comercial usa Ecommerce, Marketplace o Tienda física asistida. El canal de adquisición usa Paid Social, Paid Search, Organic Search, Direct, Email o Referral. La plataforma publicitaria se modela aparte como Meta Ads o Google Ads.
 
-## Sesiones y embudos
+## 🔄 Sesiones y embudos
 
 - Embudo general: `sesiones → vistas de producto → carrito → checkout → compra`.
 - Embudo de producto: `vistas de producto → carrito → checkout → compra`.
@@ -53,17 +59,17 @@ El canal comercial usa Ecommerce, Marketplace o Tienda física asistida. El cana
 - Estas sesiones simuladas son agregados por dimensiones: no representan usuarios ni sesiones reales deduplicadas.
 - Al integrar GA4 serán reemplazadas por las sesiones oficiales informadas por GA4.
 
-## Aditividad
+## ➕ Aditividad
 
 Son aditivas dentro de dimensiones compatibles: sesiones agregadas, vistas, carritos, checkouts, compras, unidades, ingresos, impresiones, clics, landing page views e inversión.
 
 `reach` no es aditivo entre campañas, anuncios ni plataformas. Solo se muestra y se usa para calcular frecuencia cuando la fuente entrega alcance ya agregado para el alcance exacto consultado. En cualquier agrupación formada por varias filas, Radar Ecommerce muestra “No aditivo” y no calcula frecuencia.
 
-## Stock
+## 📦 Stock
 
 El stock mostrado es el stock actual simulado y no representa el stock que existía en cada fecha histórica. El tipo `InventorySnapshot` deja preparado el futuro historial por fecha, ecommerce y SKU, separando stock disponible, reservado y total. Todavía no se conecta VTEX.
 
-## Comparaciones
+## 📅 Comparaciones
 
 - Para un día: día anterior, período anterior equivalente o sin comparación.
 - Para períodos de 2 a 7 días: período anterior equivalente, mismos días de la semana anterior o sin comparación.
@@ -71,7 +77,7 @@ El stock mostrado es el stock actual simulado y no representa el stock que exist
 - Para períodos mayores a 7 días, esa opción se oculta porque un desplazamiento de siete días produciría superposición.
 - Los rangos comparados nunca se superponen con el período actual.
 
-## Pendientes antes de conectar datos reales
+## 🛠️ Pendientes antes de conectar datos reales
 
 - Definir eventos y parámetros oficiales de GA4 para cada ecommerce.
 - Acordar identidad de sesión, atribución, zona horaria y ventanas de conversión.
